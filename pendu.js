@@ -21,7 +21,8 @@ class Game {
     function init() {
       lives = 5
 
-      word = // TODO: récupérer un mot random depuis WORD_LIST (1 ligne)
+      word = Math.floor(Math.random(WORD_LIST).length);// TODO: récupérer un mot random depuis WORD_LIST (1 ligne)
+      console.log(word);
         letters = []
       // Count without duplicated
       missing = Array.prototype.filter.call(word, (letter, i) => {
@@ -39,6 +40,12 @@ class Game {
     }
 
     function displayWord() {
+
+      let wordToDisplay = '';
+      for(let i = 0, len = word.length; i < len; i++){
+          let letter = word[i];
+          wordToDisplay += letters.includes(letters) ? letter : '_'
+      };
       // TODO: cette fonction doit:
       // - retourner une chaine de caractère
       // - les lettres trouvées et celles manquantes remplacées par un underscore
